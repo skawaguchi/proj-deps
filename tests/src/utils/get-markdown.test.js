@@ -1,12 +1,12 @@
-import { getMarkdown } from '../../../src/utils/get-markdown';
+import {getMarkdown} from '../../../src/utils/get-markdown';
 
 import tap from 'tap';
-import { stripIndents } from 'common-tags';
+import {stripIndents} from 'common-tags';
 
-import { NO_CONTENT_MESSAGE } from '../../../src/constants/content';
+import {NO_CONTENT_MESSAGE} from '../../../src/constants/content';
 
-tap.test('getMarkdown()', (t) => {
-    t.test('given dependencies', (assert) => {
+tap.test('getMarkdown()', t => {
+    t.test('given dependencies', assert => {
         const dependencies = {
             modules: [
                 {
@@ -48,7 +48,7 @@ tap.test('getMarkdown()', (t) => {
         assert.end();
     });
 
-    t.test('given no dependencies', (assert) => {
+    t.test('given no dependencies', assert => {
         const dependencies = {
             modules: [
                 {
