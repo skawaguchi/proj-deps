@@ -74,6 +74,7 @@ const getDependencies = async options => {
             timestamp: luxon.DateTime.utc()
         };
     } catch (error) {
+        console.error('The attempt to get dependencies failed', error);
         throw new Error(error);
     }
 };

@@ -16,11 +16,13 @@ tap.test('getDependencies()', t => {
     const getConfigFileStub = sinon.stub(githubAPIUtil, 'getConfigFile');
     const sendQueryStub = sinon.stub(githubAPIUtil, 'sendQuery');
     const utcStub = sinon.stub(DateTime, 'utc');
+    const consoleErrorStub = sinon.stub(console, 'error');
 
     t.beforeEach(done => {
         getConfigFileStub.reset();
         sendQueryStub.reset();
         utcStub.reset();
+        consoleErrorStub.reset();
         done();
     });
 
@@ -211,7 +213,11 @@ tap.test('getDependencies()', t => {
         sendQueryStub
             .onCall(0).rejects(error);
 
-        assert.rejects(() => getDependencies(options), new Error(error), 'rejects the error');
+        const callMethod = () => {
+            return getDependencies(options);
+        };
+
+        assert.rejects(callMethod, error, 'rejects the error');
 
         assert.end();
     });
