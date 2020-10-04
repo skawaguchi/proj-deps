@@ -1,0 +1,43 @@
+{
+  "name": "proj-deps",
+  "version": "1.0.0",
+  "description": "A CLI to generate a report including dependencies from the package.json of different GitHub repos.",
+  "engines": {
+    "node": ">=14 <15"
+  },
+  "bin": {
+    "pkgutil": "./bin/index.js"
+  },
+  "main": ".eslintrc.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "camelcase": "^6.0.0",
+    "commander": "^6.1.0",
+    "common-tags": "^1.8.0",
+    "dotenv": "^8.2.0",
+    "got": "^11.7.0",
+    "luxon": "^1.25.0"
+  },
+  "devDependencies": {
+    "chance": "^1.1.7",
+    "sinon": "^9.1.0",
+    "tap": "^14.10.8",
+    "xo": "^0.33.1"
+  },
+  "scripts": {
+    "test": "npx tap",
+    "test:watch": "npx watch \"npm run test\" . --ignoreDotFiles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:skawaguchi/proj-deps.git"
+  },
+  "author": {
+    "email": "stephen.kawaguchi@gmail.com",
+    "name": "Stephen Kawaguchi",
+    "url": "https://medium.com/@sak_to"
+  },
+  "license": "SEE LICENSE IN LICENSE.md"
+}
