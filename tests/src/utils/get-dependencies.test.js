@@ -217,7 +217,7 @@ tap.test('getDependencies()', t => {
             return getDependencies(options);
         };
 
-        assert.rejects(callMethod, error, 'rejects the error');
+        assert.rejects(callMethod, new Error(error), 'rejects the error');
 
         assert.end();
     });
