@@ -27,8 +27,10 @@
     "xo": "^0.33.1"
   },
   "scripts": {
+    "lint": "npx xo",
     "test": "npx tap",
-    "test:watch": "npx watch \"npm run test\" . --ignoreDotFiles"
+    "test:watch": "npx watch \"npm run test\" . --ignoreDotFiles",
+    "verify": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
