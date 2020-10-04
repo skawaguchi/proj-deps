@@ -1,0 +1,16 @@
+{
+    "githubAPI": "https://api.github.com/graphql",
+    "githubTokenName": "PUBLIC_GITHUB_TOKEN",
+    "repositories": [
+        {
+            "name": "freecodecamp",
+            "owner": "freecodecamp",
+            "packages": [
+                {
+                    "branch": "master",
+                    "filepath": "package.json"
+                }
+            ]
+        }
+    ]
+}
