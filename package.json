@@ -28,6 +28,7 @@
   },
   "scripts": {
     "lint": "npx xo",
+    "lint:fix": "npx xo --fix",
     "test": "npx tap",
     "test:watch": "npx watch \"npm run test\" . --ignoreDotFiles",
     "verify": "npm run lint && npm run test"
