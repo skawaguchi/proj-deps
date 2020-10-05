@@ -8,9 +8,11 @@ import got from 'got';
 
 tap.test('getConfigFile()', t => {
     const fsStub = sinon.stub(fs, 'readFileSync');
+    const consoleErrorStub = sinon.stub(console, 'error');
 
     t.beforeEach(done => {
         fsStub.reset();
+        consoleErrorStub.reset();
 
         done();
     });
