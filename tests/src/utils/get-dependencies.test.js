@@ -120,10 +120,10 @@ tap.test('getDependencies()', t => {
         assert.end();
     });
 
-    t.test('return the dependencies for all of the repos', async assert => {
+    t.test('Given valid it returns dependencies for all of the repos', async assert => {
         const path = 'some/path';
         const options = {
-            projectFile: path
+            path
         };
         const firstRepoName = 'someRepo';
         const secondRepoName = 'someOtherRepo';
@@ -183,6 +183,47 @@ tap.test('getDependencies()', t => {
                 {
                     dependencies: secondPackageJSON.dependencies,
                     name: secondRepoName
+                }
+            ],
+            timestamp: expectedDate
+        };
+
+        assert.strictSame(expectedResult, result, 'return the data from the call along with the UTC operation time stamp');
+
+        assert.end();
+    });
+
+    t.test('given there are no dependencies', async assert => {
+        const repoName = 'someRepo';
+        getConfigFileStub.returns({
+            repositories: [
+                getRepoMock(repoName)
+            ]
+        });
+
+        const noDependenciesJSON = {};
+
+        sendQueryStub
+            .onCall(0).resolves({
+                data: {
+                    repository: {
+                        somePackage: {
+                            text: JSON.stringify(noDependenciesJSON)
+                        }
+                    }
+                }
+            });
+
+        const expectedDate = 'someUTCDate';
+        utcStub.returns(expectedDate);
+
+        const result = await getDependencies({});
+
+        const expectedResult = {
+            modules: [
+                {
+                    dependencies: {},
+                    name: repoName
                 }
             ],
             timestamp: expectedDate

@@ -64,7 +64,7 @@ const getDependencies = async options => {
                 return packageContent.dependencies;
             });
             return {
-                dependencies: dependencies[0],
+                dependencies: typeof dependencies[0] === 'object' ? dependencies[0] : {},
                 name: result.repoName
             };
         });
