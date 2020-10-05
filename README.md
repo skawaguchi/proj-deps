@@ -68,9 +68,13 @@ projdeps report
 You should see a file generated at `./dependendcy-report.md` and console output similar to this:
 
 ```md
-Generated: 2020-10-05T05:43:03.580Z
+# Project Dependencies
+
+Generated: 2020-10-05T06:49:15.299Z
 
 ## carbon-components-react
+
+### carbon-components-react
 
 * @carbon/icons-react: ^0.0.1-beta.4
 * classnames: 2.2.6
@@ -93,6 +97,12 @@ projdeps report --path <path to config file from your current directory>
 ```
 
 ## Testing
+
+Verify all checks pass (linting + unit tests):
+
+```sh
+npm run verify
+```
 
 Run linting:
 
