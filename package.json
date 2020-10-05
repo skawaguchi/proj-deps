@@ -6,7 +6,7 @@
     "node": ">=14 <15"
   },
   "bin": {
-    "pkgutil": "./bin/index.js"
+    "projdeps": "./bin/index.js"
   },
   "main": ".eslintrc.js",
   "directories": {
@@ -30,6 +30,7 @@
     "lint": "npx xo",
     "lint:fix": "npx xo --fix",
     "test": "npx tap",
+    "test:coverage": "npx tap --coverage-report=html",
     "test:watch": "npx watch \"npm run test\" . --ignoreDotFiles",
     "verify": "npm run lint && npm run test"
   },
