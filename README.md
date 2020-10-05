@@ -56,7 +56,6 @@ Refer to `./config/example-config.json`. Copy it and modify it for the repositor
 
     - `branch`: The git branch you are targeting. The most likely one you are after is `master`.
     - `filepath`: The path from the branch root to the `package.json`. For a root level reference, exclude `./` and just use `package.json`.
-    - `name` (optional): This identifies the unique name in the report for a given `package.json` that will show up in the report. This is especially useful for monorepos or other projects where there are multiple `package.json` files. If this is not provided, the branch name is used.
 
 ## Usage
 

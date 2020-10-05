@@ -10,17 +10,34 @@ tap.test('getMarkdown()', t => {
         const dependencies = {
             modules: [
                 {
-                    dependencies: {
-                        someDep: 'someVersion',
-                        someOtherDep: 'someOtherVersion'
-                    },
+                    packages: [
+                        {
+                            dependencies: {
+                                someDep: 'someVersion',
+                                someOtherDep: 'someOtherVersion'
+                            },
+                            name: 'somePackage'
+                        },
+                        {
+                            dependencies: {
+                                anotherDep: 'anotherVersion'
+                            },
+                            name: 'anotherPackage'
+                        }
+                    ],
                     name: 'someModule'
                 },
                 {
-                    dependencies: {
-                        anotherDep: 'anotherVersion'
-                    },
-                    name: 'anotherModule'
+                    packages: [
+                        {
+                            dependencies: {
+                                yetAnotherDep: 'yetAnotherVersion'
+                            },
+                            name: 'yetAnotherPackage'
+
+                        }
+                    ],
+                    name: 'yetAnotherModule'
                 }
             ], timestamp: 'someTimeStamp'
         };
@@ -34,12 +51,20 @@ tap.test('getMarkdown()', t => {
 
         ## someModule
 
+        ### somePackage
+
         * someDep: someVersion
         * someOtherDep: someOtherVersion
 
-        ## anotherModule
+        ### anotherPackage
 
         * anotherDep: anotherVersion
+
+        ## yetAnotherModule
+
+        ### yetAnotherPackage
+
+        * yetAnotherDep: yetAnotherVersion
         `;
         const expectedResult = `${expectedDependencyText}\n`;
 
@@ -52,7 +77,7 @@ tap.test('getMarkdown()', t => {
         const dependencies = {
             modules: [
                 {
-                    dependencies: {},
+                    packages: [],
                     name: 'someModule'
                 }
             ], timestamp: 'someTimeStamp'
