@@ -49,7 +49,7 @@ tap.test('getDependencies()', t => {
     t.test('call the github api to get packages', async assert => {
         const path = 'some/path';
         const options = {
-            projectFile: path
+            path
         };
 
         const firstConfig = getRepoMock('someRepo');

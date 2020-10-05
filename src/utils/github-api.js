@@ -2,7 +2,7 @@ const fs = require('fs');
 const got = require('got');
 
 const getConfigFile = configFilePath => {
-    const filePath = configFilePath ? configFilePath : './tests/fixtures/test-dependencies.json';
+    const filePath = configFilePath ? configFilePath : './config/example-config.json';
 
     if (filePath.split('.').pop() !== 'json') {
         throw new Error(`You must pass the path to a JSON file. You passed ${filePath}.`);

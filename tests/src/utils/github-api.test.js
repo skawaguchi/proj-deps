@@ -16,7 +16,7 @@ tap.test('getConfigFile()', t => {
     });
 
     t.test('given no path', assert => {
-        const expectedDefaultPath = './tests/fixtures/test-dependencies.json';
+        const expectedDefaultPath = './config/example-config.json';
 
         fsStub.returns(JSON.stringify({}));
 

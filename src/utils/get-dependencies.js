@@ -34,7 +34,7 @@ const getRepoQueries = config => {
 };
 
 const getDependencies = async options => {
-    const config = githubAPIUtil.getConfigFile(options.projectFile);
+    const config = githubAPIUtil.getConfigFile(options.path);
     const repoQueries = getRepoQueries(config);
 
     const {githubAPI, githubTokenName} = config;
