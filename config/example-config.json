@@ -1,0 +1,16 @@
+{
+    "githubAPI": "https://api.github.com/graphql",
+    "githubTokenName": "PUBLIC_GITHUB_TOKEN",
+    "repositories": [
+        {
+            "name": "carbon-components-react",
+            "owner": "carbon-design-system",
+            "packages": [
+                {
+                    "branch": "master",
+                    "filepath": "package.json"
+                }
+            ]
+        }
+    ]
+}
