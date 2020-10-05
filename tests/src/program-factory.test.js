@@ -6,18 +6,23 @@ import sinon from 'sinon';
 import fs from 'fs';
 import commander from 'commander';
 
+import dotenv from 'dotenv';
+
 tap.test('program', t => {
     const fsStub = sinon.stub(fs, 'readFileSync');
     const versionStub = sinon.stub(commander.Command.prototype, 'version');
+    const dotenvConfigStub = sinon.stub(dotenv, 'config');
 
     const version = 'someVersion';
 
     t.beforeEach(done => {
+        dotenvConfigStub.reset();
         fsStub.reset();
 
         fsStub.returns(JSON.stringify({
             version
         }));
+
         done();
     });
 
@@ -25,6 +30,7 @@ tap.test('program', t => {
         const program = makeProgram();
 
         assert.ok(program instanceof commander.Command, 'new program instantiated');
+        assert.ok(dotenvConfigStub.calledOnce, 'initialize environment variables');
 
         assert.end();
     });
