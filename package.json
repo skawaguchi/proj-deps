@@ -1,6 +1,6 @@
 {
   "name": "proj-deps",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI to generate a report including dependencies from the package.json of different GitHub repos.",
   "engines": {
     "node": ">=14 <15"

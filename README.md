@@ -1,6 +1,6 @@
-# Project Dependency Utilities
+# Project Dependency CLI
 
-This CLI tool leverages the GitHub API to get package.json files to pull dependencies. This is useful for pulling quick reports on the source code being packaged in your products.
+This CLI leverages the GitHub API to get package.json files to pull dependencies. This is useful for pulling quick reports on the source code being packaged in your products.
 
 If you do not understand the difference between `dependencies`, `devDependencies`, and `peerDependencies` in `package.json`, the [npm documentation](https://docs.npmjs.com/files/package.json#dependencies) explains the nuances.
 
