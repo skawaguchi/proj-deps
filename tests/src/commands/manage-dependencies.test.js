@@ -63,7 +63,7 @@ tap.test('manageDependencies()', t => {
             encoding: 'utf8'
         };
 
-        assert.equal('dependencies.md', writeFileSyncStub.getCall(0).args[0], 'write the dependencies.md file');
+        assert.equal('dependency-report.md', writeFileSyncStub.getCall(0).args[0], 'write the report markdown file');
         assert.equal(expectedMarkdown, writeFileSyncStub.getCall(0).args[1], 'pass the markdown to write to the file');
         assert.sameStrict(expectedOptions, writeFileSyncStub.getCall(0).args[2], 'set the options of the file');
 

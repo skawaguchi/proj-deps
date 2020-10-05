@@ -15,7 +15,7 @@ const manageDependencies = async options => {
     try {
         const markdown = getMarkdownUtil.getMarkdown(dependencies);
 
-        fs.writeFileSync('dependencies.md', markdown, {
+        fs.writeFileSync('dependency-report.md', markdown, {
             encoding: 'utf8'
         });
 

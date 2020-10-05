@@ -107,4 +107,4 @@ dist
 .env
 
 # Ignore our auto-generated markdown file
-dependencies.md
+dependency-report.md
