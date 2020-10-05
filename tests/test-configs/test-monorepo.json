@@ -1,0 +1,27 @@
+{
+    "githubAPI": "https://api.github.com/graphql",
+    "githubTokenName": "PUBLIC_GITHUB_TOKEN",
+    "repositories": [
+        {
+            "name": "avalanche",
+            "owner": "avalanchesass",
+            "packages": [
+                {
+                    "branch": "master",
+                    "filepath": "packages/cli/package.json",
+                    "name": "cli"
+                },
+                {
+                    "branch": "master",
+                    "filepath": "packages/component-button/package.json",
+                    "name": "component-button"
+                },
+                {
+                    "branch": "master",
+                    "filepath": "packages/eslint-config/package.json",
+                    "name": "eslint-config"
+                }
+            ]
+        }
+    ]
+}
