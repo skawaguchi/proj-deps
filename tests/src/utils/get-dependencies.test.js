@@ -120,7 +120,7 @@ tap.test('getDependencies()', t => {
         assert.end();
     });
 
-    t.test('Given valid it returns dependencies for all of the repos', async assert => {
+    t.test('Given valid deps it returns entries for all of the repos and packages within them', async assert => {
         const path = 'some/path';
         const options = {
             path
@@ -140,13 +140,22 @@ tap.test('getDependencies()', t => {
                 'some-module': '0.0.0',
                 someOtherModule: '~1.1.1',
                 yetAnotherModule: '^2.2.2'
-            }
+            },
+            name: 'some-package'
         };
 
         const secondPackageJSON = {
             dependencies: {
                 andYetAnotherModule: '3.3.3'
-            }
+            },
+            name: 'another-package'
+        };
+
+        const thirdPackageJSON = {
+            dependencies: {
+                aFinalModule: '4.4.4'
+            },
+            name: 'a-final-package'
         };
 
         sendQueryStub
@@ -162,8 +171,11 @@ tap.test('getDependencies()', t => {
             .onCall(1).resolves({
                 data: {
                     repository: {
-                        somePackage: {
+                        anotherPackage: {
                             text: JSON.stringify(secondPackageJSON)
+                        },
+                        aFinalPackage: {
+                            text: JSON.stringify(thirdPackageJSON)
                         }
                     }
                 }
@@ -177,11 +189,25 @@ tap.test('getDependencies()', t => {
         const expectedResult = {
             modules: [
                 {
-                    dependencies: firstPackageJSON.dependencies,
+                    packages: [
+                        {
+                            dependencies: firstPackageJSON.dependencies,
+                            name: firstPackageJSON.name
+                        }
+                    ],
                     name: firstRepoName
                 },
                 {
-                    dependencies: secondPackageJSON.dependencies,
+                    packages: [
+                        {
+                            dependencies: secondPackageJSON.dependencies,
+                            name: secondPackageJSON.name
+                        },
+                        {
+                            dependencies: thirdPackageJSON.dependencies,
+                            name: thirdPackageJSON.name
+                        }
+                    ],
                     name: secondRepoName
                 }
             ],
@@ -193,7 +219,7 @@ tap.test('getDependencies()', t => {
         assert.end();
     });
 
-    t.test('given there are no dependencies', async assert => {
+    t.test('given there is a package but no dependencies', async assert => {
         const repoName = 'someRepo';
         getConfigFileStub.returns({
             repositories: [
@@ -201,7 +227,9 @@ tap.test('getDependencies()', t => {
             ]
         });
 
-        const noDependenciesJSON = {};
+        const noDependenciesJSON = {
+            name: 'no-deps'
+        };
 
         sendQueryStub
             .onCall(0).resolves({
@@ -222,7 +250,12 @@ tap.test('getDependencies()', t => {
         const expectedResult = {
             modules: [
                 {
-                    dependencies: {},
+                    packages: [
+                        {
+                            dependencies: {},
+                            name: 'no-deps'
+                        }
+                    ],
                     name: repoName
                 }
             ],

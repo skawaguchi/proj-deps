@@ -56,15 +56,19 @@ const getDependencies = async options => {
 
         const modules = allResults.map(result => {
             const {repository} = result.package.data;
-            const packages = Object.keys(repository).map(packageName => {
+            const parsedPackages = Object.keys(repository).map(packageName => {
                 return JSON.parse(repository[packageName].text);
             });
 
-            const dependencies = packages.map(packageContent => {
-                return packageContent.dependencies;
+            const packages = parsedPackages.map(packageContent => {
+                return {
+                    dependencies: packageContent.dependencies ? packageContent.dependencies : {},
+                    name: packageContent.name
+                };
             });
+
             return {
-                dependencies: typeof dependencies[0] === 'object' ? dependencies[0] : {},
+                packages,
                 name: result.repoName
             };
         });

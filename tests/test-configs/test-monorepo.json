@@ -8,18 +8,15 @@
             "packages": [
                 {
                     "branch": "master",
-                    "filepath": "packages/cli/package.json",
-                    "name": "cli"
+                    "filepath": "packages/cli/package.json"
                 },
                 {
                     "branch": "master",
-                    "filepath": "packages/component-button/package.json",
-                    "name": "component-button"
+                    "filepath": "packages/component-button/package.json"
                 },
                 {
                     "branch": "master",
-                    "filepath": "packages/eslint-config/package.json",
-                    "name": "eslint-config"
+                    "filepath": "packages/eslint-config/package.json"
                 }
             ]
         }
