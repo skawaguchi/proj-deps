@@ -1,6 +1,6 @@
 {
   "name": "proj-deps",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI to generate a report including dependencies from the package.json of different GitHub repos.",
   "engines": {
     "node": ">=14 <15"
@@ -43,5 +43,5 @@
     "name": "Stephen Kawaguchi",
     "url": "https://medium.com/@sak_to"
   },
-  "license": "SEE LICENSE IN LICENSE.md"
+  "license": "MIT"
 }
