@@ -3,9 +3,16 @@ const getMarkdownUtil = require('../utils/get-markdown');
 const fs = require('fs');
 
 const manageDependencies = async options => {
-    try {
-        const dependencies = await getDependenciesUtil.getDependencies(options);
+    let dependencies;
 
+    try {
+        dependencies = await getDependenciesUtil.getDependencies(options);
+    } catch (error) {
+        console.error('The attempt to load dependencies failed', error);
+        throw new Error(error);
+    }
+
+    try {
         const markdown = getMarkdownUtil.getMarkdown(dependencies);
 
         fs.writeFileSync('dependencies.md', markdown, {
