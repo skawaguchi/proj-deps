@@ -62,10 +62,10 @@ Refer to `./config/example-config.json`. Copy it and modify it for the repositor
 Once your auth token and configuration are set up, you can attempt to use the CLI. Run this command to print out the example config:
 
 ```sh
-projdeps report
+projdeps deps --path <path to config file>
 ```
 
-You should see a file generated at `./dependendcy-report.md` and console output similar to this:
+You should see a file generated at `./dependency-report.md` and console output similar to this:
 
 ```md
 # Project Dependencies
